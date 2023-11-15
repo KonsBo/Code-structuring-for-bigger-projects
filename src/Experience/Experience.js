@@ -1,3 +1,4 @@
+import * as THREE from "three";
 import Sizes from "./Utils/Sizes";
 import Time from "./Utils/Time.js";
 
@@ -12,11 +13,16 @@ export default class Experience {
     //Setup
     this.sizes = new Sizes();
     this.time = new Time();
-
+    this.scene = new THREE.Scene();
     // Resize event
     this.sizes.on("resize", () => {
       this.resize();
     });
+    // Time tick event
+    this.time.on("tick", () => {
+      this.update();
+    });
   }
   resize() {}
+  update() {}
 }
