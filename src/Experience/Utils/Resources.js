@@ -48,7 +48,6 @@ export default class Resources extends EventEmitter {
     this.items[source.name] = file;
     this.loaded++;
     if (this.loaded === this.toLoad) {
-      console.log("Finished");
       this.trigger("ready");
     }
   }
